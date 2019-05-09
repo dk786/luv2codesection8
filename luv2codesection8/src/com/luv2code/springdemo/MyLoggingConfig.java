@@ -49,7 +49,7 @@ public class MyLoggingConfig {
 		// set root logging level
 		loggerParent.setLevel(rootLevel);
 
-		// set up the consoel handler
+		// set up the console handler
 		ConsoleHandler consoleHandler = new ConsoleHandler();
 		consoleHandler.setLevel(printedLevel);
 		consoleHandler.setFormatter(new SimpleFormatter());
