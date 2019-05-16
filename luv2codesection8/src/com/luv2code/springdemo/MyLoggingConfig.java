@@ -5,7 +5,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * 
@@ -20,8 +24,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  *           find them
  */
 
+@Component
 public class MyLoggingConfig {
+	
+	@Value("${rootloggerlevel}")
 	private String rootLoggerLevel;
+	@Value("${printedloggerlevel}")
 	private String printedLoggerLevel;
 
 	public void setRootLoggerLevel(String rootLoggerLevel) {
@@ -32,6 +40,7 @@ public class MyLoggingConfig {
 		this.printedLoggerLevel = printedLoggerLevel;
 	}
 
+	@PostConstruct
 	public void initLogger() {
 
 		// parse levels
